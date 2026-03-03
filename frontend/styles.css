@@ -38,7 +38,7 @@
   overflow-y: auto; /* adds scrolling if forms are too long */
   max-height: 80vh; /* limits height so it fits on the screen */
   z-index: 2;
-  background-color: rgba(255, 255, 255, 0.353);
+  background-color: rgba(16, 112, 80, 0.603);
   max-width: 50%;
   overflow-x: hidden;
 }
@@ -80,7 +80,7 @@
 .fade-in-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 1s ease;
 }
 /* Active state - visible and in position */
 .fade-in-left.visible {
@@ -88,6 +88,15 @@
   transform: translateX(0);
 }
 /****************************PARALLAX********************************/
+h3 {
+  text-align: center;
+  color: burlywood;
+}
+
+.service-type-container p {
+  color: burlywood;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -134,8 +143,11 @@ select {
   gap: 0.25rem
 }
 
-.hidden {
-  display: none;
+.survey.hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 /* Centers the entire survey box */
@@ -147,7 +159,10 @@ select {
 
 /* Keeps labels aligned nicely */
 .survey {
-  text-align: center; /* keeps labels aligned to left inside the box */
+  max-height: 1500px;  /* Big enough to fit your form */
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 .basic-info {
@@ -224,6 +239,7 @@ select {
   border-radius: 5px;
   cursor: pointer;
   user-select: none;
+  color: burlywood;
 }
 
 /* hide default radio button */
@@ -261,6 +277,10 @@ select {
 #other-service-container input {
   width: 300px;
   padding: 0.5rem;
+}
+
+#other-service-container label {
+  color: burlywood;
 }
 
 /****************************MULT CHOICE OPTIONS********************************/
