@@ -9,17 +9,25 @@ form.addEventListener("submit", (e) => {
 const select = document.getElementById("service");
 const survey1 = document.getElementById("survey-option1");
 const survey2 = document.getElementById("survey-option2");
-
+const body = document.body;
 select.addEventListener("change", () => {
   // Hide both surveys first
   survey1.classList.add("hidden");
   survey2.classList.add("hidden");
+  
+  // Remove ALL theme classes first (clean slate)
+  body.classList.remove("default-theme", "tree-service-theme", "garage-door-theme");
 
-  // Show the selected one
+  // Show the selected one and add appropriate theme
   if (select.value === "option1") {
     survey1.classList.remove("hidden");
+    body.classList.add("tree-service-theme");
   } else if (select.value === "option2") {
     survey2.classList.remove("hidden");
+    body.classList.add("garage-door-theme");
+  } else {
+    // No selection - add default theme
+    body.classList.add("default-theme");
   }
 });
 
