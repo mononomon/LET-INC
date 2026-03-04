@@ -13,7 +13,7 @@
 /* first thing you see on the website: LETULI INC. + company mission/philosophy + image itself */
 .hero-section{
   min-height : 100vh;
-  background-image : url(../images/IMG_20260303_141631.jpg);
+  background-image : url(/images/IMG_20260303_141631.jpg);
   transition: background-image 0.5s ease;
   background-size : cover;
   background-position : center;
@@ -92,7 +92,7 @@
 /****************************PARALLAX********************************/
 
 body.garage-door-theme .hero-section{
-  background-image: url(../images/todd-kent-onnJOfF-okU-unsplash.jpg);
+  background-image: url(/images/todd-kent-onnJOfF-okU-unsplash.jpg);
 }
 
 body.garage-door-theme .services-overview{
@@ -106,7 +106,7 @@ body.garage-door-theme .hero-right {
 /****************************Garage-Door Theme********************************/
 
 body.tree-service-theme .hero-section{
-  background-image: url(../images/zack-masters-C-g9MSA8dZ8-unsplash.jpg);
+  background-image: url(/images/zack-masters-C-g9MSA8dZ8-unsplash.jpg);
 }
 
 body.tree-service-theme .services-overview{

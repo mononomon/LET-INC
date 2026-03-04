@@ -24,6 +24,7 @@ app.use(express.json());
 
 // Serve frontend
 app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, "../images")));
 
 app.post("/submit", async (req, res) => {
   console.log("✅ Form data received:");
