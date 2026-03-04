@@ -2,20 +2,20 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const nodemailer = require("nodemailer");
-require('dotenv').config();
+require("dotenv").config();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 // Email configuration
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    pass: process.env.EMAIL_PASS,
   },
   tls: {
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 });
 
 // Middleware
@@ -31,31 +31,44 @@ app.post("/submit", async (req, res) => {
 
   // Prepare email content
   const emailContent = JSON.stringify(req.body, null, 2);
-  
+
+  // Determine which form was submitted
+  let subject;
+  if (req.body.name1) {
+    // Tree service form (has name1 field)
+    subject = "New Tree Service Quote Request";
+  } else if (req.body.name2) {
+    // Garage door form (has name2 field)
+    subject = "New Garage Door Quote Request";
+  } else {
+    // Fallback
+    subject = "New Form Submission - Letuli Inc";
+  }
+
   const mailOptions = {
-    from: 'letuliincc@gmail.com',
-    to: 'letuliincc@gmail.com',  // Send to yourself
-    subject: 'New Form Submission - Letuli Inc',
-    text: `New form submission:\n\n${emailContent}`
+    from: "letuliincc@gmail.com",
+    to: "letuliincc@gmail.com",
+    subject: subject, // Use the dynamic subject
+    text: `New form submission:\n\n${emailContent}`,
   };
 
   // Send email
   try {
     await transporter.sendMail(mailOptions);
     console.log("Email sent successfully!");
-    
+
     res.json({
       success: true,
       message: "Form submitted successfully!",
-      data: req.body
+      data: req.body,
     });
   } catch (error) {
     console.error("Error sending email:", error);
-    
+
     res.json({
       success: false,
       message: "Error sending email",
-      error: error.message
+      error: error.message,
     });
   }
 });
