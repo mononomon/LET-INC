@@ -20,10 +20,22 @@
   </head>
 
   <body>
-    <section class="hero-section">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">
+          <img src="/images/transparent_logo_letuliinc-Picsart-BackgroundRemover.png" alt="Letuli Inc Logo">
+        </a>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#services" class="nav-link">Services Overview</a></li>
+          <li><a href="#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+    <section class="hero-section" id="home">
       <div class="hero-left">
         <h1>Letuli Inc.</h1>
-        <p>Professional services you can trust</p>
+        <p>LIC: #(num) • Bonded and Insured</p>
       </div>
 
       <div class="hero-right">
@@ -274,7 +286,7 @@
       </div>
     </section>
 
-    <section class="services-overview">
+    <section class="services-overview" id="services">
       <div class="fade-in-left">
         <h2>Our Services</h2>
         <p>
@@ -284,12 +296,17 @@
       </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <section class="contact-us" id="contact">
+      <h2>Contact Us:</h2>
+      <p>Phone: 619-727-1232 & 760-586-3647</p>
+      <p>Email: letuliincc@gmail.com</p>
+    </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="scripts.js"></script>
+    
     <footer style="background-color: gray;">
       <p>© 2026 Letuli Inc</p>
     </footer>
-
-    <script src="scripts.js"></script>
   </body>
 </html>
