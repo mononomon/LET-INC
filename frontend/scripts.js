@@ -165,5 +165,5 @@ const observer = new IntersectionObserver(
 }, observerOptions);
 
 // Select all elements with animation classes and observe them
-const animatedElements = document.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up');
+const animatedElements = document.querySelectorAll('.fade-in-left, .fade-in-right, .fade-in-up, .fade-in');
 animatedElements.forEach(el => observer.observe(el));
